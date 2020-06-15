@@ -1,0 +1,35 @@
+@{
+    ViewData["Title"] = "Dishes";
+}
+@model Wrapper
+
+<div class="text-center">
+    <h1><a href="/">Chefs</a> | Dishes</h1>
+</div>
+<div class="row my-4">
+    <h5 class="display-inline">Yum, take a look at our tasty dishes!</h5>
+    <a href="/Dishes/New" class="display-inline ml-5">Add a Dish</a>
+</div>
+<div class="row">
+    <table class="table table-striped table-responsive">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Name</th>
+                <th scope="col">Chef</th>
+                <th scope="col">Tastiness</th>
+                <th scope="col">Calories</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+            @foreach (var d in ViewBag.AllTheDishes)
+            {
+                <td>@d.Name</td>
+                <td>@d.Creator.FirstName @d.Creator.LastName</td>
+                <td>@d.Tastiness</td>
+                <td>@d.Calories</td>
+            }
+            </tr>
+        </tbody>
+    </table>
+</div>
